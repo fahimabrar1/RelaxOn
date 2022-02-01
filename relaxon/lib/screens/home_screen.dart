@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:relaxon/_colors.dart';
 import 'package:relaxon/components/buttons.dart';
 import 'package:relaxon/components/custom_font.dart';
+
+import '../_colors.dart';
+import '../global_variables.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -9,7 +11,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: CustomColor.lightBLue,
+      backgroundColor: CustomColor.blue,
       body: Container(
         color: CustomColor.blue,
         child: const SafeArea(
@@ -28,11 +30,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Button signup = Button(
-      "Sign Up", CustomFont.googleAbel(18, CustomColor.black, FontWeight.bold));
-  Button login = Button(
-      "Login", CustomFont.googleAbel(18, CustomColor.black, FontWeight.bold));
-
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -44,23 +41,7 @@ class _HomePageState extends State<HomePage> {
             height: 120,
           ),
           Text(
-            "Welcome",
-            style: CustomFont.googleAbel(
-              48,
-              CustomColor.white,
-              FontWeight.bold,
-            ),
-          ),
-          Text(
-            "To",
-            style: CustomFont.googleAbel(
-              48,
-              CustomColor.white,
-              FontWeight.bold,
-            ),
-          ),
-          Text(
-            "RelaxOn",
+            "Home Screen",
             style: CustomFont.googleAbel(
               48,
               CustomColor.white,
@@ -70,11 +51,51 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 50,
           ),
-          signup,
-          const SizedBox(
-            height: 10,
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Button(
+                "Diary",
+                100,
+                100,
+                diaryPath,
+                CustomFont.googleAbel(
+                  24,
+                  CustomColor.black,
+                  FontWeight.bold,
+                ),
+              ),
+              const SizedBox(
+                width: 20,
+              ),
+              Button(
+                "Public \nChat",
+                100,
+                100,
+                publicchatPath,
+                CustomFont.googleAbel(
+                  24,
+                  CustomColor.black,
+                  FontWeight.bold,
+                ),
+              ),
+            ],
           ),
-          login,
+          const SizedBox(
+            height: 20,
+          ),
+          Button(
+            "Professional Help",
+            100,
+            220,
+            paragraphPath,
+            CustomFont.googleAbel(
+              24,
+              CustomColor.black,
+              FontWeight.bold,
+            ),
+          ),
         ],
       ),
     );
